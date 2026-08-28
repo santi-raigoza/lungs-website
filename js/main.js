@@ -47,6 +47,9 @@
   document.addEventListener('keydown', function (e) {
     if (!site.hidden) return;
     if (e.key === 'Enter' || e.key === ' ') {
+      // Space's default action is to page-scroll the viewport, which races
+      // enterSite()'s own scrollTo(0, 0) and can win, landing mid-page.
+      e.preventDefault();
       enterSite();
     }
   });
