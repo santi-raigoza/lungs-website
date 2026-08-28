@@ -71,7 +71,7 @@
           experience. This makes lung sound assessment inconsistent between providers,
           hard to document over time, and difficult to monitor remotely.</p>
         <p>There is no standardized, repeatable way to capture lung sounds across the
-          whole chest and compare them over time or between patients. A physician
+          whole back and compare them over time or between patients. A physician
           typically listens at a handful of points, for a few seconds each, and records
           only written impressions &mdash; not the underlying audio. That leaves no
           objective record to revisit, share with a specialist, or run through automated
@@ -86,14 +86,14 @@
       <h2><span class="icon icon-clipboard" aria-hidden="true"></span> Goals &amp; Approach</h2>
       <div class="panel">
         <p>L.I.V.E. is a robotic system that automates auscultation: it drives a
-          stethoscope to a series of defined points across the chest, presses it against
+          stethoscope to a series of defined points across the back, presses it against
           the body, and records lung sounds at each location for a standardized 20
           seconds. Those recordings are streamed through a Raspberry Pi, compared against
           a database of known lung sounds, and turned into a visual map of lung health
           &mdash; a diagnostic aid for the physician, not the patient.</p>
         <ol class="pixel-list">
           <li>Design and build the robot chassis and mechanism that moves the
-            stethoscope across the body and presses it firmly against the chest at each
+            stethoscope across the body and presses it firmly against the back at each
             recording point.</li>
           <li>Mount and connect a stethoscope to a Raspberry Pi to capture clean audio at
             each point.</li>
@@ -117,13 +117,13 @@
           <span class="icon icon-lg icon-person" aria-hidden="true"></span>
           <h3>Robotic Positioning</h3>
           <p>A robot moves the stethoscope across the body and presses it against the
-            chest at each specified auscultation point, automating what a clinician
+            back at each specified auscultation point, automating what a clinician
             would otherwise do by hand.</p>
         </div>
         <div class="pixel-card">
           <span class="icon icon-lg icon-waveform" aria-hidden="true"></span>
           <h3>Multi-Point Recording</h3>
-          <p>Capture 20 seconds of lung sound audio at each chest location through a
+          <p>Capture 20 seconds of lung sound audio at each back location through a
             stethoscope connected to a Raspberry Pi, building a complete acoustic
             picture of the lungs.</p>
         </div>
