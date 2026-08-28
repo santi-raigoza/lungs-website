@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Name &mdash; Lung Sound Mapping System</title>
+<title>L.I.V.E. &mdash; Lung Internal Visualization Engine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
   <div class="landing-scanlines"></div>
   <div class="landing-content">
     <p class="landing-kicker">Senior Design Project</p>
-    <h1 class="landing-title">Project Name</h1>
-    <p class="landing-subtitle">A System for Recording &amp; Mapping Lung Sounds</p>
+    <h1 class="landing-title">L.I.V.E.</h1>
+    <p class="landing-subtitle">Lung Internal Visualization Engine</p>
     <button id="start-btn" class="pixel-btn pixel-btn-lg" type="button">
       <span class="icon icon-inline icon-play" aria-hidden="true"></span> START
     </button>
@@ -34,7 +34,7 @@
     <div class="header-inner">
       <a href="#top" class="brand">
         <span class="icon icon-lungs" aria-hidden="true"></span>
-        <span>Project Name</span>
+        <span>L.I.V.E.</span>
       </a>
       <button id="nav-toggle" class="nav-toggle pixel-btn" type="button" aria-expanded="false" aria-controls="main-nav">
         MENU
@@ -57,22 +57,27 @@
     <!-- ---------- COMPACT HERO / RECAP ---------- -->
     <section class="hero-recap">
       <span class="icon icon-xl icon-lungs" aria-hidden="true"></span>
-      <h1>Project Name</h1>
-      <p>Recording and mapping lung sounds today &mdash; detecting abnormalities tomorrow.</p>
+      <h1>L.I.V.E.</h1>
+      <p>Lung Internal Visualization Engine &mdash; an&nbsp;autonomous robotic stethoscope that
+        records, maps, and helps diagnose lung sounds.</p>
     </section>
 
     <!-- ---------- PROBLEM / MOTIVATION ---------- -->
     <section id="problem" class="content-section">
       <h2><span class="icon icon-cross" aria-hidden="true"></span> The Problem</h2>
       <div class="panel">
-        <p>[Placeholder &mdash; Problem &amp; Motivation]</p>
         <p>Respiratory disease is diagnosed largely through manual auscultation &mdash; a
           clinician listening with a stethoscope and relying on subjective judgment and
           experience. This makes lung sound assessment inconsistent between providers,
           hard to document over time, and difficult to monitor remotely.</p>
-        <p>Describe here: the clinical gap, who is affected, why current tools
-          (traditional stethoscopes, existing digital devices) fall short, and what
-          motivated the team to take this on.</p>
+        <p>There is no standardized, repeatable way to capture lung sounds across the
+          whole chest and compare them over time or between patients. A physician
+          typically listens at a handful of points, for a few seconds each, and records
+          only written impressions &mdash; not the underlying audio. That leaves no
+          objective record to revisit, share with a specialist, or run through automated
+          analysis. L.I.V.E. is motivated by closing that gap: giving clinicians a
+          consistent, automated, and data-driven way to capture and interpret lung
+          sounds.</p>
       </div>
     </section>
 
@@ -80,15 +85,26 @@
     <section id="approach" class="content-section alt">
       <h2><span class="icon icon-clipboard" aria-hidden="true"></span> Goals &amp; Approach</h2>
       <div class="panel">
-        <p>[Placeholder &mdash; Goals &amp; Approach]</p>
-        <p>Summarize the team's engineering approach: how lung sounds are captured
-          (sensor/hardware placement, sampling), how a "map" of the lungs is constructed
-          from multiple recording points, and the planned path toward automated
-          abnormality detection (signal processing / ML pipeline).</p>
+        <p>L.I.V.E. is a robotic system that automates auscultation: it drives a
+          stethoscope to a series of defined points across the chest, presses it against
+          the body, and records lung sounds at each location for a standardized 20
+          seconds. Those recordings are streamed through a Raspberry Pi, compared against
+          a database of known lung sounds, and turned into a visual map of lung health
+          &mdash; a diagnostic aid for the physician, not the patient.</p>
         <ol class="pixel-list">
-          <li>[Goal 1 &mdash; e.g. build a multi-point acoustic sensor array]</li>
-          <li>[Goal 2 &mdash; e.g. generate a spatial lung sound map]</li>
-          <li>[Goal 3 &mdash; e.g. flag abnormal sounds automatically]</li>
+          <li>Design and build the robot chassis and mechanism that moves the
+            stethoscope across the body and presses it firmly against the chest at each
+            recording point.</li>
+          <li>Mount and connect a stethoscope to a Raspberry Pi to capture clean audio at
+            each point.</li>
+          <li>Record 20 seconds of audio at each specified point on the body, covering
+            all major lung fields.</li>
+          <li>Build a database of reference lung sounds (normal and abnormal) to compare
+            recordings against and detect anomalies.</li>
+          <li>Generate a 2D, color-coded visualization of the lungs from the recorded
+            data, highlighting the location and likely type of any detected issue.</li>
+          <li>Work toward a 3D visualization as a stretch goal, giving physicians a fuller
+            spatial map of lung condition.</li>
         </ol>
       </div>
     </section>
@@ -98,28 +114,37 @@
       <h2><span class="icon icon-chart" aria-hidden="true"></span> Features &amp; Functionality</h2>
       <div class="card-grid">
         <div class="pixel-card">
+          <span class="icon icon-lg icon-person" aria-hidden="true"></span>
+          <h3>Robotic Positioning</h3>
+          <p>A robot moves the stethoscope across the body and presses it against the
+            chest at each specified auscultation point, automating what a clinician
+            would otherwise do by hand.</p>
+        </div>
+        <div class="pixel-card">
           <span class="icon icon-lg icon-waveform" aria-hidden="true"></span>
           <h3>Multi-Point Recording</h3>
-          <p>[Placeholder] Capture lung sounds from multiple chest locations to build a
-            complete acoustic picture.</p>
+          <p>Capture 20 seconds of lung sound audio at each chest location through a
+            stethoscope connected to a Raspberry Pi, building a complete acoustic
+            picture of the lungs.</p>
         </div>
         <div class="pixel-card">
           <span class="icon icon-lg icon-lungs" aria-hidden="true"></span>
           <h3>Lung Sound Mapping</h3>
-          <p>[Placeholder] Visualize recordings as a spatial map overlaying the
-            lung structure.</p>
+          <p>Visualize recordings as a color-coded 2D map overlaying the lung structure,
+            with a 3D visualization planned as a longer-term goal.</p>
         </div>
         <div class="pixel-card">
           <span class="icon icon-lg icon-chart" aria-hidden="true"></span>
           <h3>Abnormality Detection</h3>
-          <p>[Placeholder] Analyze recordings to automatically flag wheezes, crackles,
-            and other abnormal patterns.</p>
+          <p>Compare recordings against a database of known lung sounds to automatically
+            flag wheezes, crackles, and other abnormal patterns.</p>
         </div>
         <div class="pixel-card">
           <span class="icon icon-lg icon-clipboard" aria-hidden="true"></span>
-          <h3>[Feature Name]</h3>
-          <p>[Placeholder] Description of an additional planned feature or
-            functionality.</p>
+          <h3>Localized Diagnosis</h3>
+          <p>Identify not just that an issue exists, but which part of the lung it's
+            coming from &mdash; giving physicians a targeted starting point for further
+            evaluation.</p>
         </div>
       </div>
     </section>
@@ -142,34 +167,34 @@
       <h2><span class="icon icon-person" aria-hidden="true"></span> Our Team</h2>
       <div class="card-grid">
         <div class="pixel-card member-card">
-          <span class="icon icon-lg icon-person" aria-hidden="true"></span>
-          <h3>Jacob Carton</h3>
-          <!-- <p class="member-role">[Role]</p> -->
-          <p>jcarton2023@my.fit.edu</p>
-        </div>
-        <div class="pixel-card member-card">
-          <span class="icon icon-lg icon-person" aria-hidden="true"></span>
+          <img class="member-photo" src="images/profiles/optimized/ethan.jpg" alt="Ethan Van Brunt">
           <h3>Ethan Van Brunt</h3>
-          <!-- <p class="member-role">[Role]</p> -->
+          <p class="member-role">Team Lead</p>
           <p>evanbrunt2023@my.fit.edu</p>
         </div>
         <div class="pixel-card member-card">
-          <span class="icon icon-lg icon-person" aria-hidden="true"></span>
+          <img class="member-photo" src="images/profiles/optimized/jacob.jpg" alt="Jacob Carton">
+          <h3>Jacob Carton</h3>
+          <p class="member-role">Data Lead</p>
+          <p>jcarton2023@my.fit.edu</p>
+        </div>
+        <div class="pixel-card member-card">
+          <img class="member-photo" src="images/profiles/optimized/santi.jpg" alt="Santiago Raigoza">
           <h3>Santiago Raigoza</h3>
-          <!-- <p class="member-role">[Role]</p> -->
+          <p class="member-role">Software Lead</p>
           <p>sraigoza2023@my.fit.edu</p>
         </div>
         <div class="pixel-card member-card">
-          <span class="icon icon-lg icon-person" aria-hidden="true"></span>
+          <img class="member-photo" src="images/profiles/optimized/connor.jpg" alt="Connor Shanley">
           <h3>Connor Shanley</h3>
-          <!-- <p class="member-role">[Role]</p> -->
+          <p class="member-role">Hardware Lead</p>
           <p>cshanley2023@my.fit.edu</p>
         </div>
       </div>
 
       <h3 class="subheading"><span class="icon icon-sm icon-cross" aria-hidden="true"></span> Faculty Advisor</h3>
       <div class="panel panel-inline">
-        <span class="icon icon-lg icon-person" aria-hidden="true"></span>
+        <img class="advisor-photo" src="images/profiles/optimized/silaghi.jpg" alt="Dr. Silaghi">
         <div>
           <p><strong>Dr. Silaghi</strong></p>
           <p>Department of Electrical Engineering and Computer Science</p>
@@ -217,11 +242,12 @@
     <section id="contact" class="content-section alt">
       <h2><span class="icon icon-mail" aria-hidden="true"></span> Contact</h2>
       <div class="panel">
-        <p>[Placeholder &mdash; how to reach the team]</p>
+        <p>Have questions about the project or interested in collaborating? Reach out
+          using the links below.</p>
         <ul class="pixel-list">
-          <li>Email: <a href="mailto:team@example.edu">team@example.edu</a></li>
-          <li>GitHub: <a href="#">[repo link]</a></li>
-          <li>University Department: <a href="#">[department page link]</a></li>
+          <li>Email: <a href="mailto:evanbrunt2023@my.fit.edu">evanbrunt2023@my.fit.edu</a></li>
+          <li>GitHub: <a href="https://github.com/santi-raigoza/LIVE">github.com/santi-raigoza/LIVE</a></li>
+          <li>University Department: <a href="https://www.fit.edu/engineering-and-science/academics-and-learning/student-design-and-research/">College of Engineering and Science &mdash; Student Design &amp; Research</a></li>
         </ul>
       </div>
     </section>
@@ -232,8 +258,8 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>Project Name</h4>
-        <p>[One-line project tagline placeholder]</p>
+        <h4>L.I.V.E.</h4>
+        <p>Lung Internal Visualization Engine</p>
       </div>
       <div class="footer-col">
         <h4>Site</h4>
@@ -250,12 +276,12 @@
       </div>
       <div class="footer-col">
         <h4>Links</h4>
-        <a href="#">[GitHub Repo]</a>
-        <a href="#">[University Dept.]</a>
+        <a href="https://github.com/santi-raigoza/LIVE">GitHub Repo</a>
+        <a href="https://www.fit.edu/engineering-and-science/academics-and-learning/student-design-and-research/">University Dept.</a>
         <a href="#" id="footer-replay">Replay Intro</a>
       </div>
     </div>
-    <p class="footer-copy">&copy; 2026 Project Name Senior Design Team. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 L.I.V.E. Senior Design Team. All rights reserved.</p>
   </footer>
 
 </div>
